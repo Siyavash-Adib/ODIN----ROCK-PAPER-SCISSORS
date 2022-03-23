@@ -5,19 +5,88 @@
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
+:root {
+  --background-color: rgb(144, 201, 191);
+}
+
 body {
   display: grid;
   place-content: center;
-  background-color: lightgray;
-  height: 100vh;
-  width: 100vw;
+  background-color: var(--background-color);
 }
 
-.testDiv {
-  box-shadow: 0 0 20px 5px black;
-  padding: 10px 20px;
-  font-size: 2rem;
-  font-weight: bold;
-  border-radius: 100vw;
-  background-color: white;
+.game-panel {
+  width: 75vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  position: relative;
+  
+  --result-font: 0px;
+  --result-content: "YOU WIN";
+}
+
+.game-panel::after {
+  content: var(--result-content);
+  position: absolute;
+
+  font-size: var(--result-font);
+  font-family: 'Creepster', cursive;
+
+  text-shadow: 5px 5px 10px linear;
+  transition: all .3s ease-in-out;
+}
+
+.score {
+  margin-top: 10px;
+}
+.score, .score > * {
+  font-family: 'Monoton', cursive;
+  font-size: 7vw;
+  text-align: center;
+  color: #191919;
+}
+
+.play-icon, .vs-icon {
+  height: 100%;
+  transform: rotateY(0deg);
+  transition:
+    height 0.5s ease-in-out,
+    filter 0.5s ease-in-out,
+    transform 0.5s ease-in-out 0.5s,
+    opacity 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.vs-icon {
+  height: 50%;
+}
+
+.inactive {
+  height: 0;
+  opacity: 0;
+}
+
+.play-icon.inactive {
+  transform: rotateY(90deg);
+}
+
+.shaking {
+  animation: shake .5s;
+}
+
+@keyframes shake {
+    0% { transform: translate( 1px,  1px) rotate( 0deg); }
+   10% { transform: translate(-1px, -2px) rotate(-3deg); }
+   20% { transform: translate(-3px,  0px) rotate( 3deg); }
+   30% { transform: translate( 3px,  2px) rotate( 0deg); }
+   40% { transform: translate( 1px, -1px) rotate( 3deg); }
+   50% { transform: translate(-1px,  2px) rotate(-3deg); }
+   60% { transform: translate(-3px,  1px) rotate( 0deg); }
+   70% { transform: translate( 3px,  1px) rotate(-3deg); }
+   80% { transform: translate(-1px, -1px) rotate( 3deg); }
+   90% { transform: translate( 1px,  2px) rotate( 0deg); }
+  100% { transform: translate( 1px, -2px) rotate(-3deg); }
 }
