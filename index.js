@@ -174,23 +174,3 @@ function playRound(playerSelection, computerSelection) {
   result += ` ${playerSelection} vs ${computerSelection}`
   return result;
 }
-
-
-// for(let i = 0; i < 5; i++) {
-//   let userInput =  window.prompt();
-//   let roundResult = playRound(userInput, computerPlay());
-  
-//   console.log(`round ${i}`, roundResult);
-//   if(roundResult.includes("Tie")) { continue; }
-//   if(roundResult.includes("Player"))   { playerScore++; continue; }
-//   if(roundResult.includes("Computer")) { computerScore++; continue; }
-  
-//   i--;
-// }
-
-// console.log(
-//   "Final Result:\n",
-//   "playerScore =", playerScore,
-//   "computerScore =", computerScore
-// )
-
